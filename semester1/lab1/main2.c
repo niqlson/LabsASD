@@ -8,7 +8,7 @@ int main(int argc, char const *argv[]) {
     y = x * x * x + 14;
     printf("f(%.2f) = %.2f\n", x, y);
   }
-  else if (x > -13 && x < -3 || x >= 14) {
+  else if (x > -13 && x < -3 || x > 14) {
     y = -4 * x * x * x + 3 * x - 7;
     printf("f(%.2f) = %.2f\n", x, y);
   }
