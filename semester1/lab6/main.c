@@ -3,23 +3,22 @@
 #define ROWS 7
 #define COLS 10
 
-// Bubble Sort with Flag to sort an array in non-decreasing order
-void bubbleSortAscendingWithFlag(int arr[], int n) {
+void bubbleSortWithFlag(int arr[], int n) {
   int temp;
   int swapped;
 
   for (int i = 0; i < n - 1; i++) {
-    swapped = 0; // Reset the flag
+    swapped = 0;
     for (int j = 0; j < n - i - 1; j++) {
-      if (arr[j] > arr[j + 1]) { // Non-decreasing order
+      if (arr[j] > arr[j + 1]) {
         temp = arr[j];
         arr[j] = arr[j + 1];
         arr[j + 1] = temp;
-        swapped = 1; // Flag to indicate a swap occurred
+        swapped = 1; 
       }
     }
     if (!swapped) {
-      break; // Exit early if no swaps were made
+      break;
     }
   }
 }
@@ -43,18 +42,15 @@ int main() {
     printf("\n");
   }
 
-  // Extract odd-indexed elements (rows 1, 3, 5) from the last column
-  int oddElements[(ROWS + 1) / 2]; // Array for odd-indexed elements
+  int oddElements[(ROWS + 1) / 2];
   int k = 0;
 
-  for (int i = 1; i < ROWS; i += 2) { // Rows: 1, 3, 5
+  for (int i = 1; i < ROWS; i += 2) {
     oddElements[k++] = matrix[i][COLS - 1];
   }
 
-  // Sort the odd elements in non-decreasing order using Bubble Sort with Flag
-  bubbleSortAscendingWithFlag(oddElements, k);
+  bubbleSortWithFlag(oddElements, k);
 
-  // Place sorted odd elements back into their original positions
   k = 0;
   for (int i = 1; i < ROWS; i += 2) {
     matrix[i][COLS - 1] = oddElements[k++];
